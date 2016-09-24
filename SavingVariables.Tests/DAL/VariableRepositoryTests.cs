@@ -55,6 +55,14 @@ namespace SavingVariables.Tests.DAL
             Assert.AreSame(var, newVar);
         }
         [TestMethod]
+        public void RepoGetsAll()
+        {
+            Variables var = new Variables { Var = "x", Value = "6" };
+            repo.Add(var);
+            List<Variables> VarList = repo.GetVar();
+            Assert.AreEqual(1, VarList.Count);
+        }
+        [TestMethod]
         public void RepoCanGet()
         {
             Variables var = new Variables { Var = "x", Value = "6" };

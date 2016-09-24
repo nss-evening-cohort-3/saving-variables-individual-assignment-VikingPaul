@@ -29,7 +29,7 @@ namespace SavingVariables.DAL
 
         public Variables GetVar(string v)
         {
-            List<Variables> vars = Context.Vars.ToList();
+            List<Variables> vars = this.GetVar();
             foreach (var var in vars)
             {
                 if (var.Var == v)
@@ -49,6 +49,11 @@ namespace SavingVariables.DAL
                 Context.SaveChanges();
             }
             return deleteThis;
+        }
+
+        public List<Variables> GetVar()
+        {
+            return Context.Vars.ToList();
         }
     }
 }

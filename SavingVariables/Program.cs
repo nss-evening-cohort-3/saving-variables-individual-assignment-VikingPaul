@@ -11,13 +11,15 @@ namespace SavingVariables
     {
         static void Main(string[] args)
         {
+            string lastq = null;
             bool KeepGoing = true;
             while (KeepGoing)
             {
                 Console.Write(">>");
                 string input = Console.ReadLine();
-                Expression newInput = new Expression(input);
+                Expression newInput = new Expression(input, lastq);
                 Console.WriteLine(newInput.Response());
+                lastq = input;
             }
         }
     }
